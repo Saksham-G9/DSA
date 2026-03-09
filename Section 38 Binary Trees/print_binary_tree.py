@@ -10,9 +10,9 @@ def print_binary_tree(node: TreeNode | None):
     else:
         print("L -> None, ", end="")
     if node.right:
-        print(f"R ->  {node.right.val}", end="")
+        print(f"R -> {node.right.val}", end="")
     else:
-        print("R ->  None", end="")
+        print("R -> None", end="")
     print()
     print_binary_tree(node.left)
     print_binary_tree(node.right)
