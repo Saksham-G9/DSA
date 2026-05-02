@@ -1,3 +1,5 @@
+from collections import deque
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -118,6 +120,29 @@ def complex_tree():
     n15 = TreeNode(15, None, n20)
     root = TreeNode(10, n5, n15)
     return root
+
+
+
+def print_tree_level_order(root):
+    if not root:
+        print("Empty tree")
+        return
+
+    q = deque([root])
+    while q:
+        level_size = len(q)
+        level = []
+
+        for _ in range(level_size):
+            node = q.popleft()
+            if node:
+                level.append(str(node.val))
+                q.append(node.left)
+                q.append(node.right)
+            else:
+                level.append("None")
+
+        print(" ".join(level))
 
 
 def get_all_examples():
